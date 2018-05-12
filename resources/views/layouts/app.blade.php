@@ -1,3 +1,7 @@
+<?php
+    $name = Auth::user()->name;
+    $is_vip = DB::table('users')->where('name', $name)->value('is_vip');
+?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -12,13 +16,14 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="resources/jquery.min.js"></script>
+    <script src="resources/popper.min.js"></script>
+    <script src="resources/bootstrap.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.proxy.ustclug.org/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="resources/font.family.css" rel="stylesheet" type="text/css">
+    <link href="css/new.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -55,6 +60,15 @@
             {{__('抢票记录')}}
         </a>
     </li>
+
+@if($is_vip)
+        <li class="nav-item">
+            <a id="test" class="nav-link " role="button" href="{{route('privilege')}}">
+                {{__('会员特权')}}
+            </a>
+        </li>
+@endif
+
     <li class="nav-item">
         <a id="test" class="nav-link " role="button" href="{{route('setting')}}">
             {{__('个人设置')}}

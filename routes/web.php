@@ -18,9 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('pick', 'DBController@pick')->name('home');
+Route::post('morn', 'DBController@morn')->name('home');
 
 Route::get('/setting', 'HomeController@setting')->name('setting');
 
 Route::get('/log', 'HomeController@log')->name('log');
+Route::get('/log_detail', 'HomeController@log_detail')->name('log_detail');
 
 Route::get('/privilege', 'HomeController@privilege')->name('privilege');
+Route::get('/py', 'PythonController@test')->name('pr');
+
+Route::post('/setting','DBController@setting');

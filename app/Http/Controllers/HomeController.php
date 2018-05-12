@@ -31,6 +31,9 @@ class HomeController extends Controller
     public function log(){
         return view( 'log');
     }
+    public function log_detail(){
+        return view( 'log_detail');
+    }
     public function privilege(){
         return view( 'privilege');
     }
