@@ -18,8 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('pick', 'DBController@pick')->name('home');
-Route::post('morn', 'DBController@morn')->name('home');
+Route::post('/pick', 'DBController@pick');
+Route::post('/morn', 'DBController@morn');
 
 Route::get('/setting', 'HomeController@setting')->name('setting');
 

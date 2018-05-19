@@ -47,7 +47,7 @@ $data = DB::table('users')->where('name', $name);
     {{Form::text('wxid', $data->value('wxid'), ['class' => 'form-control'])}}
     <br/>
     {{Form::label('a', '郑重承诺：统一身份认证账号及密码仅用于预约席位，绝不会存取您的个人信息或将账号用于其他用途。', ['class' => 'alert alert-info'])}}
-    {{Form::submit('提交', ['class' => 'btn btn-primary'])}}
+    {{Form::submit('提交', ['class' => 'btn btn-primary my_submit'])}}
 {{ Form::close() }}
 
 

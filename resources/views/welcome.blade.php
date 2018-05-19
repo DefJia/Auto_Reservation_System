@@ -8,7 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.proxy.ustclug.org/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="resources/font.family.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>

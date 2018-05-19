@@ -2,17 +2,17 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
-  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts-gstatic.proxy.ustclug.org/s/raleway/v12/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
+  src: local('Raleway Light'), local('Raleway-Light'), url(../font/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts-gstatic.proxy.ustclug.org/s/raleway/v12/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+  src: local('Raleway'), local('Raleway-Regular'), url(../font/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts-gstatic.proxy.ustclug.org/s/raleway/v12/1Ptrg8zYS_SKggPNwPIsWqZPBQ.ttf) format('truetype');
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(../font/1Ptrg8zYS_SKggPNwPIsWqZPBQ.ttf) format('truetype');
 }

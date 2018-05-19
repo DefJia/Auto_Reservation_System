@@ -35,7 +35,7 @@ class DBController extends Controller {
     }
 
     public function pick(){
-        return 1;
+        return redirect('/log')->with('message', '个人信息更新成功！');
     }
 
     public function morn(){

@@ -19,6 +19,7 @@
     <script src="resources/jquery.min.js"></script>
     <script src="resources/popper.min.js"></script>
     <script src="resources/bootstrap.min.js"></script>
+    <script src="js/new.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
