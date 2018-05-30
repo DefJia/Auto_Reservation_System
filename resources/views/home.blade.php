@@ -29,7 +29,7 @@
                             for($j = 0; $j < 4; $j++){
                                 $tmp = chr(65+$i);
                                 $val = $j * 9 + $i;
-                                echo "<td style='text-align: left'><label class='form-check-label'><input type='checkbox' class='form-check-input pick_room' name='option' value='{$val}' id='{$room[$j]}-{$tmp}'/>{$room[$j]}-{$tmp}</label></td>";
+                                echo "<td style='text-align: left'><label class='form-check-label'><input type='checkbox' class='form-check-input pick_room' name='option[]' value='{$val}' id='{$room[$j]}-{$tmp}'/>{$room[$j]}-{$tmp}</label></td>";
                             }
                             echo "</tr>";
                         }
@@ -56,7 +56,7 @@
     <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#morn">预约抢票模式</button>
     <div id="morn" class="collapse">
         <div class="card-body">
-            {{Form::open(array('action' => 'DBController@pick', 'url' => 'morn')) }}
+            {{Form::open(array('action' => 'DBController@morn', 'url' => 'morn')) }}
             {{Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control'])}}
             {{Form::close()}}
         </div>

@@ -26,18 +26,22 @@
         <thead>
             <th>模式</th>
             <th>时间</th>
-            <th>车次</th>
             <th>状态</th>
-            <th>查看</th>
         </thead>
         <tbody>
         <?php
             $name = Auth::user()->name;
-            $data = DB::table('queue_pick')->where('name', $name);
+            $data = DB::table('logs')->where('name', $name)->get();
             foreach ($data as $item) {
                 echo "<tr>";
-                $hh = array();
-                echo "<td>{$item->value('time')}</td>";
+                if($item->action == 1) echo "<td>捡漏模式</td>";
+                else echo "<td>预约模式</td>";
+                echo "<td>".$item->created_at."</td>";
+                echo "<td>";
+                switch ($item->status){
+                    
+                }
+                echo "</td>";
                 echo "</tr>";
             }
         ?>

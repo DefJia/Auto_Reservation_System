@@ -15,7 +15,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/bootstrap.min.css">
     <script src="resources/jquery.min.js"></script>
     <script src="resources/popper.min.js"></script>
     <script src="resources/bootstrap.min.js"></script>

@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use Illuminate\Validation\Rules\In;
+use function PHPSTORM_META\type;
 
 class DBController extends Controller {
 
@@ -35,7 +37,16 @@ class DBController extends Controller {
     }
 
     public function pick(){
-        return redirect('/log')->with('message', '个人信息更新成功！');
+        $name = Auth::user()->name;
+        $date = Input::get('date');
+        $option = Input::get('option');
+        // echo $option;
+        $room = '';
+        foreach ($option as $elem){
+            $room .= $elem . ",";
+        }
+        DB::table('logs')->insert(['name' => $name, 'action' => 1, 'status' => 0, 'detail' => $room]);
+        return redirect('/log')->with('message', '抢票订单提交成功！');
     }
 
     public function morn(){
