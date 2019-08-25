@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: defjia
- * Date: 18-5-10
- * Time: 上午8:20
- */
-
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -26,14 +19,24 @@ class DBController extends Controller {
     public function setting()
     {
         $name = Auth::user()->name;
+        $post = Input::get();
+        $columns = ['reminder', 'username', 'pwd', 'mail', 'phone', 'wxid'];
         $data = DB::table('users')->where('name', $name);
-        $this->judge_insert('username', $name, $data);
-        $this->judge_insert('pwd', $name, $data);
-        $this->judge_insert('mail', $name, $data);
-        $this->judge_insert('phone', $name, $data);
-        $this->judge_insert('wxid', $name, $data);
-
-        return redirect('/setting')->with('message', '个人信息更新成功！');
+        $update = [];
+        if($post['reminder'] == 'email' && $post['mail'] == ''
+            || $post['reminder'] == 'sms' && $post['phone'] == ''
+            || $post['reminder'] == 'wechat' && $post['wxid'] == '')
+            return redirect('/setting')->with('message', '您尚未填写已选择提醒方式的详细信息！');
+        foreach ($columns as $column){
+            if($post[$column] != $data->value($column))
+                $update[$column] = $post[$column];
+        }
+        if (sizeof($update)) {
+            DB::table('users')->where('name', $name)->update($update);
+            return redirect('/setting')->with('message', '个人信息更新成功！');
+        } else{
+            return redirect('/setting')->with('message', '没有需要更新的信息！');;
+        }
     }
 
     public function pick(){
@@ -52,4 +55,9 @@ class DBController extends Controller {
     public function morn(){
         return 1;
     }
+
+    // morn - 时间是否合法
+    // 首先检测此人账号是否可用
+    // 同一时段有无其他订单
+
 }
