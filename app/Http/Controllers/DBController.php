@@ -8,14 +8,6 @@ use function PHPSTORM_META\type;
 
 class DBController extends Controller {
 
-    public function judge_insert($column_name, $name, $data){
-        $post = Input::get($column_name);
-        if($post != $data->value($column_name))
-            DB::table('users')
-                ->where('name', $name)
-                ->update([$column_name => $post]);
-    }
-
     public function setting()
     {
         $name = Auth::user()->name;
@@ -41,6 +33,7 @@ class DBController extends Controller {
 
     public function pick(){
         $name = Auth::user()->name;
+        /*
         $date = Input::get('date');
         $option = Input::get('option');
         // echo $option;
@@ -49,15 +42,29 @@ class DBController extends Controller {
             $room .= $elem . ",";
         }
         DB::table('logs')->insert(['name' => $name, 'action' => 1, 'status' => 0, 'detail' => $room]);
-        return redirect('/log')->with('message', '抢票订单提交成功！');
+        */
+        var_dump(Input::get());
+        // return redirect('/log')->with('message', '抢票订单提交成功！');
     }
 
     public function morn(){
         return 1;
     }
 
-    // morn - 时间是否合法
-    // 首先检测此人账号是否可用
-    // 同一时段有无其他订单
+    function is_available(){
+        // 账号是否可用
+        $name = Auth::user()->name;
+        $status = DB::table('users')->where('name', $name)->value('status');
+        $flag = $status == '0' ? true : false;
+        return $flag;
+    }
+
+    function is_duplicated(){
+        // 是否当天有其他未结束订单
+    }
+
+    function is_right_time(){
+        // morn的时间段是否恰当
+    }
 
 }
